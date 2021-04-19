@@ -1,0 +1,85 @@
+<!-- DataTables -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Loại hàng</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#themloaihanghoa"><i
+                            class="fas fa-plus-square"></i> Thêm loại
+                        sản phẩm</button>
+                </ol>
+            </div>
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<!-- Modal -->
+<div class="modal fade" id="themloaihanghoa" tabindex="-1" aria-labelledby="loaihanghoaModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="POST" id="themloaihanghoa_form">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loaihanghoaModal">Thêm loại hàng hóa</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="loaihanghoa" class="col-sm-4 col-form-label">Loại hàng hóa</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="loaihanghoa" id="loaihanghoa"
+                                placeholder="Áo...">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="maloaihanghoa" class="col-sm-4 col-form-label">Mã loại hàng hóa</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="maloaihanghoa" id="maloaihanghoa"
+                                placeholder="ao01...">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                    <input type="button" id="themBtn" name="themBtn" class="btn btn-primary" value="Thêm">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card col-12">
+                <div class="card-body">
+                    <table id="type_table" class="table table-bordered table-hover" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Mã</th>
+                                <th>Loại</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script src="scripts/loaihang.js"></script>

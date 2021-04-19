@@ -1,0 +1,33 @@
+{
+  "name": "mehouse",
+  "version": "1.0.0",
+  "description": "Trang quan ly cho M.E House Clothings",
+  "main": "src\\index.js",
+  "scripts": {
+    "start": "nodemon --inspect src\\index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giangcse/MEHouse.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/giangcse/MEHouse/issues"
+  },
+  "homepage": "https://github.com/giangcse/MEHouse#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.0",
+    "express-session": "^1.17.1",
+    "expressjs": "^1.0.1",
+    "mongoose": "^5.12.3",
+    "toastr": "^2.1.4"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.7"
+  }
+}

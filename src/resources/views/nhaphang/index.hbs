@@ -1,0 +1,126 @@
+<!-- DataTables -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Nhập hàng</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#nhaphang"><i
+                            class="fas fa-plus-square"></i> Thêm
+                        sản phẩm</button>
+                </ol>
+            </div>
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<!-- Modal -->
+<div class="modal fade" id="nhaphang" tabindex="-1" aria-labelledby="nhaphangModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="POST" id="nhaphang_form">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="nhaphangModal">Thêm sản phẩm</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="loaihanghoa" class="col-sm-4 col-form-label">Loại hàng hóa</label>
+                        <div class="col-sm-8">
+                            <select name="product_type" id="product_type" class="form-control">
+                                {{#each types}}
+                                <option value="{{this.type_name}}">{{this.type_name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="product_name" class="col-sm-4 col-form-label">Tên hàng hóa</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="product_name" id="product_name"
+                                placeholder="Áo thun">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="product_image" class="col-sm-4 col-form-label">Hình ảnh</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="product_image" id="product_image"
+                                placeholder="https://imgur.com/abc.jpg">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="product_color" class="col-sm-4 col-form-label">Màu</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="product_color" id="product_color"
+                                placeholder="Đỏ">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="product_price" class="col-sm-4 col-form-label">Giá</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="number" min="1" name="product_price" id="product_price"
+                                placeholder="123.456">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="product_quantity" class="col-sm-4 col-form-label">Số lượng hàng</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="number" min="0" name="product_quantity"
+                                id="product_quantity" placeholder="100">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="product_description" class="col-sm-4 col-form-label">Mô tả</label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" type="text" name="product_description"
+                                id="product_description" placeholder="Sản phẩm chất lượng cao"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                    <input type="button" id="themBtn" name="themBtn" class="btn btn-primary" value="Thêm">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card col-12">
+                <div class="card-body">
+                    <table id="warehouse_table" class="table table-bordered table-hover" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Loại</th>
+                                <th>Tên</th>
+                                <th>Màu</th>
+                                <th>Giá</th>
+                                <th>Số lượng</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script src="scripts/nhaphang.js"></script>
