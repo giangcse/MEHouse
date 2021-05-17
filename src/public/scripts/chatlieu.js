@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-    $('#warehouse_table').DataTable({
+    $('#type_table').DataTable({
         // dom: 'Bfrtip',
         // serverSide: true,
         processing: true,
@@ -8,22 +8,15 @@ $(document).ready(function () {
         ordering: true,
         responsive: true,
         ajax: {
-            url: "/nhaphang/show",
+            url: "/quanlychatlieu/show",
             type: "GET",
             data: ""
         },
         columns: [
-            {data: "product_type"},
-            {data: "product_import_date"},
-            {data: "product_name"},
-            {data: "product_color"},
-            {data: "product_price_import"},
-            {data: "product_ship_price"},
-            {data: "product_price"},
-            {data: "product_discount"},
-            {data: "product_after_discount"},
-            {data: "product_quantity"},
+            {data: "type_code"},
+            {data: "type_name"},
             {data: '_id',
+             width: '5%',
              render: function(data, type, row){
                 let strEdit ='<a data-id="' + data +'" class="edit" title="Chỉnh sửa" style="cursor: pointer; color: green"><i class="fas fa-pencil-alt"></i></a>';
                 let strDel = '<a data-id="' + data + '" class="delete" style="padding-left: inherit;cursor: pointer; color: red" title="Xóa"><i class="fa fa-trash"></i></a>';
@@ -34,7 +27,7 @@ $(document).ready(function () {
         "language": {
             "decimal": ",",
             "thousands": ".",
-            "lengthMenu": "Hiển thị _MENU_ mặt hàng",
+            "lengthMenu": "Hiển thị _MENU_ hóa đơn",
             "zeroRecords": "Không tìm thấy dữ liệu",
             "info": "Trang _PAGE_ / _PAGES_",
             "infoEmpty": "Không có dữ liệu",
@@ -73,33 +66,25 @@ $(document).ready(function () {
             "hideEasing": "linear",
             "showMethod": "fadeIn",
             "hideMethod": "fadeOut"
-        }          
-
-        if(jQuery('#product_name').val() == "" ||
-           jQuery('#product_price').val() == "" ||
-           jQuery('#product_quantity').val() == ""){
-            toastr["error"]("Vui lòng điền đủ tên, giá, số lượng", "Thông báo");
-        }else{
-            $.ajax({
-                type: "POST",
-                url:"/nhaphang/them",
-                dataType: 'json',
-                data: jQuery("#nhaphang_form").serialize(),
-                success: function (data) {
-                    $("#warehouse_table").DataTable().ajax.reload();
-                    $("#nhaphang").removeClass("in");
-                    $(".modal-backdrop").remove();
-                    $("#nhaphang").hide();
-                    toastr["success"]("Đã thêm " + $("#product_name").val(), "Thông báo");
-                    $("#nhaphang_form").reset();
-                },
-                error: function () {
-                    $("#nhaphang").removeClass("in");
-                    $(".modal-backdrop").remove();
-                    $("#nhaphang").hide();
-                    toastr["error"]("Không thể thêm", "Thông báo");
-                }
-            });
-        }        
+        }
+        $.ajax({
+            type: "POST",
+            url:"/quanlyloaihang/them",
+            dataType: 'json',
+            data: jQuery("#themloaichatlieu_form").serialize(),
+            success: function (data) {
+                $("#material_table").DataTable().ajax.reload();
+                $("#themloaichatlieu").removeClass("in");
+                $(".modal-backdrop").remove();
+                $("#themloaichatlieu").hide();
+                toastr["success"]("Đã thêm " + $("#loaichatlieu").val(), "Thông báo");
+            },
+            error: function () {
+                $("#themloaichatlieu").removeClass("in");
+                $(".modal-backdrop").remove();
+                $("#themloaichatlieu").hide();
+                toastr["error"]("Không thể thêm", "Thông báo");
+            }
+        });
     });
 });

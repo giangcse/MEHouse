@@ -34,6 +34,11 @@ class NhapHangControllers {
         var gia_hang = req.body.product_price;
         var luong_hang = req.body.product_quantity;
         var mota_hang = req.body.product_description;
+        var ship_hang = req.body.product_ship_price;
+        var giamgia_hang = req.body.product_discount;
+        var gianhap_hang = req.body.product_price_import;
+
+        var giasaugiam = (gia_hang * (100 - giamgia_hang))/100;
 
         Warehouses.create({
             "product_type": loai_hang,
@@ -42,7 +47,11 @@ class NhapHangControllers {
             "product_color": mau_hang,
             "product_price": gia_hang,
             "product_quantity": luong_hang,
-            "product_description": mota_hang
+            "product_description": mota_hang,
+            "product_ship_price": ship_hang,
+            "product_discount": giamgia_hang,
+            "product_price_import": gianhap_hang,
+            "product_after_discount": giasaugiam,
         })
             .then(warehouse => {
                 res.json({
